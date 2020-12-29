@@ -37,18 +37,9 @@ class Restaurant {
   String get image => _image;
   int get rating => _rating;
 
-  factory Restaurant.fromJson(Map<String, dynamic> data) {
+  factory Restaurant.fromMap(Map<String, dynamic> data) {
     return Restaurant(
-      data['id'],
-      data['name'],
-      data['city'],
-      data['desc'],
-      data['street'],
-      data['lat'],
-      data['long'],
-      data['phone'],
-      data['image'],
-      data['rating'],
+      _id: data['id'],
     );
   }
 }

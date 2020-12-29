@@ -1,48 +1,45 @@
 class Order {
-  int _id;
-  int _resID;
-  int _menuID;
-  int _customerID;
-  int _quantity;
-  String _address;
-  String _phone;
-  String _orderDate;
+  int id;
+  int res_id;
+  int menu_id;
+  int coustomer_id;
+  int quantity;
+  String address;
+  String phone;
+  String order_date;
 
-  Order(this._id, this._resID, this._menuID, this._customerID, this._quantity,
-      this._address, this._phone, this._orderDate);
+  Order(
+      {this.id,
+      this.res_id,
+      this.menu_id,
+      this.coustomer_id,
+      this.quantity,
+      this.address,
+      this.phone,
+      this.order_date});
 
   Order.map(dynamic obj) {
-    this._id = obj['id'];
-    this._resID = obj['res_id'];
-    this._menuID = obj['menu_id'];
-    this._customerID = obj['coustomer_id'];
-    this._quantity = obj['quantity'];
-    this._address = obj['address'];
+    this.id = obj['id'];
+    this.res_id = obj['res_id'];
+    this.menu_id = obj['menu_id'];
+    this.coustomer_id = obj['coustomer_id'];
+    this.quantity = obj['quantity'];
+    this.address = obj['address'];
 
-    this._phone = obj['phone'];
-    this._orderDate = obj['order_date'];
+    this.phone = obj['phone'];
+    this.order_date = obj['order_date'];
   }
 
-  int get id => _id;
-  int get name => _resID;
-  int get city => _menuID;
-  int get desc => _customerID;
-  int get street => _quantity;
-  String get lat => _address;
-
-  String get phone => _phone;
-  String get image => _orderDate;
-
-  factory Order.fromJson(Map<String, dynamic> data) {
+  factory Order.fromJson(dynamic data) {
     return Order(
-      data['id'],
-      data['res_id'],
-      data['menu_id'],
-      data['customer_id'],
-      data['quantity'],
-      data['address'],
-      data['phone'],
-      data['order_date'],
+      id: data['id'],
+      res_id: data['res_id'],
+      menu_id: data['menu_id'],
+      coustomer_id: data['customer_id'],
+      quantity: data['quantity'],
+      address: data['address'],
+      phone: data['phone'],
+      order_date: data['order_date'],
     );
   }
 }
