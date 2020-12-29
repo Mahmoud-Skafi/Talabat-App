@@ -1,46 +1,53 @@
 class User {
-  int _id;
-  String _lastName;
-  String _firstName;
-  String _email;
-  String _password;
-  String _phone;
-  String _role;
-  String _flaglogged;
+  int id;
+  String last_name;
+  String first_name;
+  String email;
+  String password;
+  String phone;
+  String role;
+  String flaglogged;
 
-  User(this._id, this._firstName, this._lastName, this._email, this._password,
-      this._phone, this._role, this._flaglogged);
+  User(
+      {this.id,
+      this.first_name,
+      this.last_name,
+      this.email,
+      this.password,
+      this.phone,
+      this.role,
+      this.flaglogged});
 
   User.map(dynamic obj) {
-    this._id = obj['id'];
-    this._email = obj['eamil'];
-    this._firstName = obj['first_name'];
-    this._lastName = obj['last_name'];
-    this._password = obj['password'];
-    this._phone = obj['phone'];
-    this._role = obj['role'];
-    this._flaglogged = obj['password'];
+    this.id = obj['id'];
+    this.email = obj['eamil'];
+    this.first_name = obj['first_name'];
+    this.last_name = obj['last_name'];
+    this.password = obj['password'];
+    this.phone = obj['phone'];
+    this.role = obj['role'];
+    this.flaglogged = obj['password'];
   }
 
-  int get id => _id;
-  String get first_name => _firstName;
-  String get last_name => _lastName;
-  String get email => _email;
-  String get password => _password;
-  String get phone => _phone;
-  String get role => _role;
-  String get flaglogged => _flaglogged;
+  // int get id => id;
+  // String get first_name => first_name;
+  // String get last_name => last_name;
+  // String get email => email;
+  // String get password => password;
+  // String get phone => phone;
+  // String get role => role;
+  // String get flaglogged => flaglogged;
 
-  factory User.fromJson(Map<String, dynamic> data) {
+  factory User.fromJson(dynamic data) {
     return User(
-      data['id'],
-      data['first_name'],
-      data['last_name'],
-      data['email'],
-      data['password'],
-      data['phone'],
-      data['role'],
-      data['password'],
+      id: data['id'],
+      first_name: data['first_name'],
+      last_name: data['last_name'],
+      email: data['email'],
+      phone: data['phone'],
+      role: data['role'],
+      password: data['password'],
+      flaglogged: data['password'],
     );
   }
 }

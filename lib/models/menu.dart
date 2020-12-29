@@ -1,50 +1,41 @@
 class Menu {
-  int _id;
-  int _resID;
-  int _price;
-  int _rating;
-  String _name;
-  String _descr;
-  String _image;
+  int id;
+  int res_id;
+  int price;
+  int rating;
+  String name;
+  String descr;
+  String image;
 
-  Menu(
-    this._id,
-    this._resID,
-    this._name,
-    this._descr,
-    this._price,
-    this._image,
-    this._rating,
-  );
+  Menu({
+    this.id,
+    this.res_id,
+    this.name,
+    this.descr,
+    this.price,
+    this.image,
+    this.rating,
+  });
 
   Menu.map(dynamic obj) {
-    this._id = obj['id'];
-    this._resID = obj['res_id'];
-    this._name = obj['name'];
-    this._descr = obj['descr'];
-    this._price = obj['price'];
-    this._image = obj['image'];
-    this._rating = obj['rating'];
+    this.id = obj['id'];
+    this.res_id = obj['res_id'];
+    this.name = obj['name'];
+    this.descr = obj['descr'];
+    this.price = obj['price'];
+    this.image = obj['image'];
+    this.rating = obj['rating'];
   }
 
-  int get id => _id;
-  int get res_id => _resID;
-  String get name => _name;
-  String get descr => _descr;
-  int get price => _price;
-  String get image => image;
-
-  int get rating => _rating;
-
-  factory Menu.fromJson(Map<String, dynamic> data) {
+  factory Menu.fromJson(dynamic data) {
     return Menu(
-      data['id'],
-      data['res_id'],
-      data['name'],
-      data['customer_id'],
-      data['price'],
-      data['image'],
-      data['rating'],
+      id: data['id'],
+      res_id: data['res_id'],
+      name: data['name'],
+      descr: data['customer_id'],
+      price: data['price'],
+      image: data['image'],
+      rating: data['rating'],
     );
   }
 }

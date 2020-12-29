@@ -1,45 +1,52 @@
 class Restaurant {
-  int _id;
-  String _name;
-  String _city;
-  String _desc;
-  String _street;
-  String _lat;
-  String _long;
-  String _phone;
-  String _image;
-  int _rating;
+  int id;
+  String name;
+  String city;
+  String desc;
+  String street;
+  String lat;
+  String long;
+  String phone;
+  String image;
+  int rating;
 
-  Restaurant(this._id, this._name, this._city, this._desc, this._street,
-      this._lat, this._long, this._phone, this._image, this._rating);
+  Restaurant(
+      {this.id,
+      this.name,
+      this.city,
+      this.desc,
+      this.street,
+      this.lat,
+      this.long,
+      this.phone,
+      this.image,
+      this.rating});
 
   Restaurant.map(dynamic obj) {
-    this._id = obj['id'];
-    this._name = obj['name'];
-    this._city = obj['city'];
-    this._desc = obj['desc'];
-    this._street = obj['street'];
-    this._lat = obj['lat'];
-    this._long = obj['long'];
-    this._phone = obj['phone'];
-    this._image = obj['image'];
-    this._rating = obj['rating'];
+    this.id = obj['id'];
+    this.name = obj['name'];
+    this.city = obj['city'];
+    this.desc = obj['desc'];
+    this.street = obj['street'];
+    this.lat = obj['lat'];
+    this.long = obj['long'];
+    this.phone = obj['phone'];
+    this.image = obj['image'];
+    this.rating = obj['rating'];
   }
 
-  int get id => _id;
-  String get name => _name;
-  String get city => _city;
-  String get desc => _desc;
-  String get street => _street;
-  String get lat => _lat;
-  String get long => _long;
-  String get phone => _phone;
-  String get image => _image;
-  int get rating => _rating;
-
-  factory Restaurant.fromMap(Map<String, dynamic> data) {
+  factory Restaurant.fromJson(dynamic data) {
     return Restaurant(
-      _id: data['id'],
+      id: data['id'],
+      name: data['name'],
+      city: data['city'],
+      desc: data['desc'],
+      street: data['street'],
+      lat: data['lat'],
+      long: data['long'],
+      phone: data['phone'],
+      image: data['image'],
+      rating: data['rating'],
     );
   }
 }
