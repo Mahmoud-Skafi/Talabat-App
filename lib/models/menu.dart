@@ -1,48 +1,57 @@
-class Order {
+class Menu {
   int _id;
   int _resID;
-  int _menuID;
-  int _customerID;
-  int _quantity;
-  String _address;
-  String _phone;
-  String _orderDate;
+  int _price;
+  int _rating;
+  String _name;
+  String _descr;
+  String _image;
 
-  Order(this._id, this._resID, this._menuID, this._customerID, this._quantity,
-      this._address, this._phone, this._orderDate);
+  Menu(
+    this._id,
+    this._resID,
+    this._name,
+    this._descr,
+    this._price,
+    this._image,
+    this._rating,
+  );
 
-  Order.map(dynamic obj) {
+  Menu.map(dynamic obj) {
     this._id = obj['id'];
     this._resID = obj['res_id'];
-    this._menuID = obj['menu_id'];
-    this._customerID = obj['coustomer_id'];
-    this._quantity = obj['quantity'];
-    this._address = obj['address'];
-
-    this._phone = obj['phone'];
-    this._orderDate = obj['order_date'];
+    this._name = obj['name'];
+    this._descr = obj['descr'];
+    this._price = obj['price'];
+    this._image = obj['image'];
+    this._rating = obj['rating'];
   }
 
   int get id => _id;
-  int get name => _resID;
-  int get city => _menuID;
-  int get desc => _customerID;
-  int get street => _quantity;
-  String get lat => _address;
+  int get res_id => _resID;
+  String get name => _name;
+  String get descr => _descr;
+  int get price => _price;
+  String get image => image;
 
-  String get phone => _phone;
-  String get image => _orderDate;
+  int get rating => _rating;
 
-  factory Order.fromJson(Map<String, dynamic> data) {
-    return Order(
+  factory Menu.fromJson(Map<String, dynamic> data) {
+    return Menu(
       data['id'],
       data['res_id'],
-      data['menu_id'],
+      data['name'],
       data['customer_id'],
-      data['quantity'],
-      data['address'],
-      data['phone'],
-      data['order_date'],
+      data['price'],
+      data['image'],
+      data['rating'],
     );
   }
 }
+// _id: { type: Number, required: true },
+// res_id: { type: Number, required: true, unique: false },
+// name: { type: String, min: 4, max: 50, required: true, trim: true },
+// descrr: { type: String },
+// price: { type: Number, required: true },
+// image: { type: String },
+// rating: { type: Number, max: 10 }

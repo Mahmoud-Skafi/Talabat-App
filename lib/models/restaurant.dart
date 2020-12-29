@@ -35,7 +35,7 @@ class Restaurant {
   String get long => _long;
   String get phone => _phone;
   String get image => _image;
-  String get rating => _rating;
+  int get rating => _rating;
 
   factory Restaurant.fromJson(Map<String, dynamic> data) {
     return Restaurant(
