@@ -8,7 +8,7 @@ class Restaurant {
   String _long;
   String _phone;
   String _image;
-  String _rating;
+  int _rating;
 
   Restaurant(this._id, this._name, this._city, this._desc, this._street,
       this._lat, this._long, this._phone, this._image, this._rating);
