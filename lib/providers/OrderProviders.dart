@@ -19,7 +19,7 @@ class MenuProviders extends ChangeNotifier {
     _orders = orders;
   }
 
-  Future<bool> fetchRestaurantsData() async {
+  Future<bool> fetchOrderData() async {
     ///
     ///
     /// [API] [https://talabat-api.herokuapp.com/]
