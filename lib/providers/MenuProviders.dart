@@ -27,7 +27,7 @@ class MenuProviders extends ChangeNotifier {
     ///
     /// Get data from [API] and return [menus] as json and convart to [List]
     String url =
-        'http://appback.ppu.edu/restaurants/${selectedRestaurant.toString()}';
+        'https://talabat-api.herokuapp.com/order/${selectedRestaurant.toString()}';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as List;

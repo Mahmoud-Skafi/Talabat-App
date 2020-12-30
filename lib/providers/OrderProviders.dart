@@ -23,11 +23,12 @@ class MenuProviders extends ChangeNotifier {
   Future<bool> fetchOrderData() async {
     ///
     ///
-    /// [API] [https://talabat-api.herokuapp.com/]
+    /// [API] [https://talabat-api.herokuapp.com/menu/]
     ///
     ///
     /// Get data from [API] and return [orders] as json and convart to [List]
-    String url = 'http://appback.ppu.edu/menus/${selectedOrder.toString()}';
+    String url =
+        'https://talabat-api.herokuapp.com/menu/${selectedOrder.toString()}';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as List;
@@ -51,22 +52,18 @@ class MenuProviders extends ChangeNotifier {
         : orderList = jsonDecode(prefs.getString("orderList"));
   }
 
-  static void removeFromOrderList(int menuItemId) async {
+  static void removeOordrFroList(int menuItemId) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<dynamic> orderList = [];
 
-    // List is there,
-    print("Got the prefs for orderList :" + prefs.getString("orderList"));
     if (prefs.getString("orderList") == "") {
       return;
     }
     orderList = jsonDecode(prefs.getString("orderList"));
     if (orderList.contains(menuItemId)) {
-      print("Found item in list !");
       orderList.remove(menuItemId);
       String newJsonArray = jsonEncode(orderList);
       prefs.setString("orderList", newJsonArray);
-      print("removed item from the list");
     }
   }
 
@@ -76,20 +73,14 @@ class MenuProviders extends ChangeNotifier {
 
     if (!(prefs.containsKey("orderList")) ||
         (prefs.getString("orderList")) == "") {
-      print("Created Prefs for orderList");
       prefs.setString("orderList", "[]");
-      print("Value for prefs :" + prefs.getString("orderList"));
     } else {
-      print("Got the prefs for orderList :" + prefs.getString("orderList"));
       orderList = jsonDecode(prefs.getString("orderList"));
       if (orderList.contains(menuItemId)) {
-        //Already in the list
-        print("Already in list !");
       } else {
         orderList.add(menuItemId);
         String newJsonArray = jsonEncode(orderList);
         prefs.setString("orderList", newJsonArray);
-        print(newJsonArray);
       }
     }
   }

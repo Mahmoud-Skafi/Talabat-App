@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/providers/RestaurantProviders.dart';
 
 class BestFoodWidget extends StatefulWidget {
+  final int id;
+  final String name;
+  final String city;
+  final int rating;
+  final String image;
+
+  const BestFoodWidget({
+    Key key,
+    this.id,
+    this.name,
+    this.city,
+    this.rating,
+    this.image,
+  }) : super(key: key);
   @override
   _BestFoodWidgetState createState() => _BestFoodWidgetState();
 }

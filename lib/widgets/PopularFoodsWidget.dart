@@ -4,6 +4,23 @@ import 'package:flutter_app/animation/ScaleRoute.dart';
 import 'package:flutter_app/pages/FoodDetailsPage.dart';
 
 class PopularFoodsWidget extends StatefulWidget {
+  final int id;
+  final String name;
+  final String description;
+  final int price;
+  final String image;
+  final int rating;
+
+  const PopularFoodsWidget({
+    Key key,
+    this.id,
+    this.name = '',
+    this.description = '',
+    this.price = 0,
+    this.image = "",
+    this.rating = 0,
+  }) : super(key: key);
+
   @override
   _PopularFoodsWidgetState createState() => _PopularFoodsWidgetState();
 }
@@ -331,5 +348,3 @@ class PopularFoodItems extends StatelessWidget {
     );
   }
 }
-
-

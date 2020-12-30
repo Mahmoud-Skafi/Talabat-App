@@ -2,8 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/animation/ScaleRoute.dart';
 import 'package:flutter_app/pages/SignInPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_app/providers/UserProviders.dart';
 
 class SignUpPage extends StatelessWidget {
+  final String firstNmame;
+  final String lastname;
+  final String phoneNumber;
+  final String code;
+
+  const SignUpPage({
+    Key key,
+    this.firstNmame = '',
+    this.lastname = '',
+    this.phoneNumber = '',
+    this.code = "",
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     String defaultFontFamily = 'Roboto-Light.ttf';

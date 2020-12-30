@@ -6,6 +6,14 @@ import 'package:flutter_app/pages/SignUpPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignInPage extends StatefulWidget {
+  final String phoneNumber;
+  final String passrord;
+
+  const SignInPage({
+    Key key,
+    this.phoneNumber = '',
+    this.passrord = '',
+  }) : super(key: key);
   @override
   _SignInPageState createState() => _SignInPageState();
 }
@@ -160,7 +168,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     InkWell(
                       onTap: () => {
-                      Navigator.push(context, ScaleRoute(page: SignUpPage()))
+                        Navigator.push(context, ScaleRoute(page: SignUpPage()))
                       },
                       child: Container(
                         child: Text(

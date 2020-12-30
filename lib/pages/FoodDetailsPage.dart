@@ -4,6 +4,23 @@ import 'package:flutter_app/pages/FoodOrderPage.dart';
 import 'package:flutter_app/widgets/FoodDetailsSlider.dart';
 
 class FoodDetailsPage extends StatefulWidget {
+  final int id;
+  final String name;
+  final String description;
+  final int price;
+  final String image;
+  final int rating;
+
+  const FoodDetailsPage({
+    Key key,
+    this.id,
+    this.name = '',
+    this.description = '',
+    this.price = 0,
+    this.image = "",
+    this.rating = 0,
+  }) : super(key: key);
+
   @override
   _FoodDetailsPageState createState() => _FoodDetailsPageState();
 }

@@ -16,11 +16,11 @@ class MenuProviders extends ChangeNotifier {
   Future<bool> fetchUsersData() async {
     ///
     ///
-    /// [API] [https://talabat-api.herokuapp.com/]
+    /// [API] [https://talabat-api.herokuapp.com/client/]
     ///
     ///
     /// Get data from [API] and return [user] as json and convart to [List]
-    const url = 'http://appback.ppu.edu/restaurants';
+    const url = 'https://talabat-api.herokuapp.com/client/';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as List;
