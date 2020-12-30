@@ -5,6 +5,12 @@ import 'package:flutter_app/models/Menu.dart';
 import 'package:http/http.dart' as http;
 
 class MenuProviders extends ChangeNotifier {
+  static int selectedRestaurant;
+
+  static void selectRestaurant(BuildContext context, int resId) {
+    selectedRestaurant = resId;
+  }
+
   List<Menu> _menus = [];
 
   List<Menu> get menus => _menus;
@@ -14,7 +20,14 @@ class MenuProviders extends ChangeNotifier {
   }
 
   Future<bool> fetchRestaurantsData() async {
-    const url = 'http://appback.ppu.edu/restaurants';
+    ///
+    ///
+    /// [API] [https://talabat-api.herokuapp.com/]
+    ///
+    ///
+    /// Get data from [API] and return [menus] as json and convart to [List]
+    String url =
+        'http://appback.ppu.edu/restaurants/${selectedRestaurant.toString()}';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as List;

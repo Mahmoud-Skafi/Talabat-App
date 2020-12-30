@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class MenuProviders extends ChangeNotifier {
   List<Restaurant> _res = [];
 
-  List<Restaurant> get menus => _res;
+  List<Restaurant> get restaurant => _res;
 
   void _setRestaurants(List<Restaurant> orders) {
     _res = orders;
